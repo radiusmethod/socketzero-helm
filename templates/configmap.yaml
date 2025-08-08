@@ -3,4 +3,8 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
 data:
-  config.json: {{ (.Values.config | default "{}") | quote | nindent 4 }}
+  config.json: {{- if .Values.config_base64 -}}
+    {{- .Values.config_base64 | b64dec | quote | nindent 4 -}}
+  {{- else -}}
+    {{- (.Values.config | default "{}") | quote | nindent 4 -}}
+  {{- end }}

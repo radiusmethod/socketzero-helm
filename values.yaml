@@ -6,6 +6,12 @@ domain: "bigbang.dev"
 
 replicaCount: 1
 
+# Configuration options
+config: "{}"
+# Alternative base64-encoded configuration
+# If config_base64 is set, it will be decoded and used instead of config
+config_base64: ""
+
 image:
   repository: registry1.dso.mil/ironbank/radiusmethod/socketzero/receiver
   pullPolicy: IfNotPresent
