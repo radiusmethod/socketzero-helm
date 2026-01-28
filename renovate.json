@@ -2,5 +2,16 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["Chart\\.yaml$"],
+      "matchStrings": [
+        "appVersion:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
+      ],
+      "depNameTemplate": "registry1.dso.mil/ironbank/radiusmethod/socketzero/receiver",
+      "datasourceTemplate": "docker"
+    }
   ]
 }
