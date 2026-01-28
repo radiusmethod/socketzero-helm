@@ -3,6 +3,14 @@
   "extends": [
     "config:base"
   ],
+  "hostRules": [
+    {
+      "matchHost": "registry1.dso.mil",
+      "hostType": "docker",
+      "username": "{{ secrets.REGISTRY1_USERNAME }}",
+      "password": "{{ secrets.REGISTRY1_PASSWORD }}"
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",
