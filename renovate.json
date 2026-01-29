@@ -18,7 +18,8 @@
         "/Chart\\.yaml$/"
       ],
       "matchStrings": [
-        "appVersion:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
+        "appVersion:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?",
+        "^version:\\s*(?<currentValue>[^\\s]+)"
       ],
       "depNameTemplate": "registry1.dso.mil/ironbank/radiusmethod/socketzero/receiver",
       "datasourceTemplate": "docker"
