@@ -14,13 +14,17 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/Chart\\.yaml$/"
-      ],
-      "matchStrings": [
-        "appVersion:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?",
-        "^version:\\s*(?<currentValue>[^\\s]+)"
-      ],
+      "managerFilePatterns": ["/Chart\\.yaml$/"],
+      "matchStrings": ["appVersion: \"(?<currentValue>[^\"]+)\""],
+      "autoReplaceStringTemplate": "appVersion: \"{{newValue}}\"",
+      "depNameTemplate": "registry1.dso.mil/ironbank/radiusmethod/socketzero/receiver",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/Chart\\.yaml$/"],
+      "matchStrings": ["\\nversion: (?<currentValue>\\S+)"],
+      "autoReplaceStringTemplate": "\nversion: {{newValue}}",
       "depNameTemplate": "registry1.dso.mil/ironbank/radiusmethod/socketzero/receiver",
       "datasourceTemplate": "docker"
     }
